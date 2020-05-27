@@ -1,2 +1,5 @@
-# PEP-2020
-A repository for the 2020 PEP internship
+# PEP 2020
+
+<table><tr><td>
+    <img src="/images/logo.png" />
+</td></tr></table>
