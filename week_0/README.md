@@ -31,10 +31,10 @@ pick a unique username and supply an email address and a password. Once
 you’ve done that, your github page will be at
 `https://github.com/<your-username-here>`.
 
-Setting up your git environment
+2 Setting up your git environment
 -------------------------------
 
-### a) Installing git
+### a Installing git
 
 If git is not installed on your Windows machine, go to
 <a href="http://git-scm.com" class="uri">http://git-scm.com</a>. Accept
@@ -57,7 +57,7 @@ background. When you do so, a terminal window will open. This terminal
 is where you could issue further git setup commands, and git commands in
 general.
 
-### b) Setting global config for git
+### b Setting global config for git
 
 Again, from the terminal, issue the command
 
