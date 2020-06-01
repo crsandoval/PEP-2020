@@ -81,6 +81,6 @@ These commands set up your global configuration.
 3 - Setting up RStudio
 ----------------------
 
-If RStuio is not installed on your Windows machine, go to
+If RStudio is not installed on your Windows machine, go to
 <a href="https://rstudio.com/products/rstudio/download/#download" class="uri">https://rstudio.com/products/rstudio/download/#download</a>.
 Accept all defaults in the installation process.
