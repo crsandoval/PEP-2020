@@ -77,6 +77,3 @@ Use the **SAME** email address you used in setting up your GitHub
 account.
 
 These commands set up your global configuration.
-
-3 - Setting up RStudio
-----------------------
