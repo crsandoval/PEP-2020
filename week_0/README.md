@@ -1,4 +1,4 @@
-Week 0
+Week 1
 ======
 
 Throughout this internship we will be using specific tools to work on
