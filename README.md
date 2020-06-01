@@ -40,3 +40,4 @@
 | Meeting type | Title | Date | Notes | Materials |
 | :---: | :---: | :---: | :---: | :---: |
 | Virtual | Introductions | May 29, 2020 | Click [here](https://docs.google.com/document/d/1iqOUm5e4UyHBLjaCJyvbvfXfv8V2INnmWWQokkJhZqE/edit?usp=sharing) | [Mentor-mentee Agreement](https://docs.google.com/document/d/1U9JwfIqtUa--cNdYOpbBjmLP1cpyFvBQqz4LzOSyZeI/edit?usp=sharing) |
+| Virtual | Week 0 | June 1, 2020 | Click [here]() | See [here](week_0/) |
