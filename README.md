@@ -40,3 +40,9 @@
 | Meeting type | Title | Date | Notes | Materials |
 | :---: | :---: | :---: | :---: | :---: |
 | Virtual | Introductions | May 29, 2020 | Click [here](https://docs.google.com/document/d/1iqOUm5e4UyHBLjaCJyvbvfXfv8V2INnmWWQokkJhZqE/edit?usp=sharing) | [Mentor-mentee Agreement](https://docs.google.com/document/d/1U9JwfIqtUa--cNdYOpbBjmLP1cpyFvBQqz4LzOSyZeI/edit?usp=sharing) |
+
+## Schedule
+| Week | Title | Date | Materials |
+| :---: | :---: | :---: | :---: |
+| 0 | Getting started | June 1, 2020 | [README](https://github.com/Turtle-PSB-NOAA/PEP-2020/tree/master/week_0) | :---: |
+
