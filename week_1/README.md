@@ -41,7 +41,7 @@ If git is not installed on your Windows machine, go to
 all defaults in the installation process. On Windows, installing git
 will also install for you a minimal unix environment with a “bash” shell
 and terminal window. We won’t be using the “bash” shell much, if at all,
-but you should know that it’s there if you need it.
+but you should be aware of it.
 
 #### Windows specific notes
 
@@ -49,7 +49,13 @@ There will be an installer `.exe` file you need to download / click.
 Again, accept all the defaults. To see if you were successful, open a
 terminal window and type:
 
-    > $ `git --version`
+`git --version`
+
+If you see something like,
+
+`git version 2.25.1.windows.1`
+
+Then the installation was a success!
 
 At this point you will have git installed. You can bring up “git bash”
 either from your start menu, or from the right click menu on any folder
