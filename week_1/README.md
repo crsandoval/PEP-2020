@@ -3,7 +3,7 @@ Week 1
 
 Throughout this internship we will be using specific tools to work on
 the research project. This is a tutorial to help you install those tools
-on your computer. Those tools include:
+on your computer. These include:
 
 1.  GitHub
 2.  git
