@@ -23,8 +23,8 @@ feel comfortable:
 -   How to learn new libraries by reading documentation
 -   Asking questions on Slack and StackOverflow
 
-Create your GitHub account
---------------------------
+1) Create your GitHub account
+-----------------------------
 
 To sign up for an account, just go to [github](https://github.com) and
 pick a unique username and supply an email address and a password. Once
