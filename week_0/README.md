@@ -3,7 +3,7 @@ Week 0
 
 Throughout this internship we will be using specific tools to work on
 the research project. This is a tutorial to help you install those tools
-on your computer. Those tools include: 1) GitHub 2) git 3) R via RStudio
+on your computer. Those tools include: 1. GitHub 2. git 3. R via RStudio
 
 ### Programming expectations
 
@@ -11,11 +11,13 @@ We will be using R and R Markdown files for this internship,
 communicating research material through the use of git and GitHub.
 Knowledge of R is not a prerequisite for this internship, **provided you
 are comfortable learning on your own as needed**. Basically, you should
-feel comfortable: \* How to look up R syntax on Google and
-StackOverflow. \* Basic programming concepts like functions, loops,
-arrays, dictionaries, strings, and if statements. \* How to learn new
-libraries by reading documentation. \* Asking questions on Slack and
-StackOverflow.
+feel comfortable:
+
+-   How to look up R syntax on Google and StackOverflow.
+-   Basic programming concepts like functions, loops, arrays,
+    dictionaries, strings, and if statements.
+-   How to learn new libraries by reading documentation.
+-   Asking questions on Slack and StackOverflow.
 
 Create your GitHub account
 --------------------------
