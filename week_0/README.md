@@ -23,16 +23,16 @@ feel comfortable:
 -   How to learn new libraries by reading documentation
 -   Asking questions on Slack and StackOverflow
 
-1) Create your GitHub account
------------------------------
+Create your GitHub account
+--------------------------
 
 To sign up for an account, just go to [github](https://github.com) and
 pick a unique username and supply an email address and a password. Once
 you’ve done that, your github page will be at
 `https://github.com/<your-username-here>`.
 
-2) Setting up your git environment
-----------------------------------
+Setting up your git environment
+-------------------------------
 
 ### a) Installing git
 
