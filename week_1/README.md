@@ -6,13 +6,13 @@ the research project. This is a tutorial to help you install those tools
 on your computer. These include:
 
 1.  GitHub
-2.  git
+2.  Git
 3.  R à la RStudio
 
 ### Programming expectations
 
 We will be using R and R Markdown files for this internship,
-communicating research materials through the use of git and GitHub.
+communicating research materials through the use of Git and GitHub.
 Knowledge of R is not a prerequisite for this internship, **provided you
 are comfortable learning on your own as needed**. Basically, you should
 feel comfortable:
@@ -26,19 +26,19 @@ feel comfortable:
 1 - Create your GitHub account
 ------------------------------
 
-To sign up for an account, just go to [github](https://github.com) and
+To sign up for an account, just go to [GitHub](https://github.com) and
 pick a unique username and supply an email address and a password. Once
-you’ve done that, your github page will be at
+you’ve done that, your GitHub page will be at
 `https://github.com/<your-username-here>`.
 
-2 - Setting up your git environment
+2 - Setting up your Git environment
 -----------------------------------
 
-### Installing git
+### Installing Git
 
-If git is not installed on your Windows machine, go to
+If Git is not installed on your Windows machine, go to
 <a href="http://git-scm.com" class="uri">http://git-scm.com</a>. Accept
-all defaults in the installation process. On Windows, installing git
+all defaults in the installation process. On Windows, installing Git
 will also install for you a minimal unix environment with a “bash” shell
 and terminal window. We won’t be using the “bash” shell much, if at all,
 but you should be aware of it.
@@ -57,13 +57,13 @@ If you see something like
 
 Then the installation was a success!
 
-At this point you will have git installed. You can bring up “git bash”
+At this point you will have Git installed. You can bring up “git bash”
 either from your start menu, or from the right click menu on any folder
 background. When you do so, a terminal window will open. This terminal
-is where you could issue further git setup commands, and git commands in
+is where you could issue further Git setup commands, and Git commands in
 general.
 
-### Setting global config for git
+### Setting global config for Git
 
 Again, from the terminal, issue the command
 
