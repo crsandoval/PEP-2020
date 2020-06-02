@@ -90,3 +90,19 @@ These commands set up your global configuration.
 If RStudio is not installed on your Windows machine, go to
 <a href="https://rstudio.com/products/rstudio/download/#download" class="uri">https://rstudio.com/products/rstudio/download/#download</a>.
 Accept all defaults in the installation process.
+
+4 - Can RStudio detect Git?
+---------------------------
+
+Let’s check if RStudio can find the Git executable.
+
+-   *File &gt; New Project…* -&gt; Do you see an option to create from
+    Version Control? ![screenshot of version control
+    option](img/version_control_option.GIF)
+-   Select *New Directory &gt; New Project* -&gt; Do you see a checkbox
+    “Create a git repository?” ![screenshot of create git
+    option](img/create_git_option.GIF)
+
+If you answered yes to the above questions then it looks like RStudio
+and Git are talking to each other. Otherwise, we may need to do some
+troubleshooting.
