@@ -37,17 +37,23 @@ you’ve done that, your GitHub page will be at
 ### Installing Git
 
 If Git is not installed on your Windows machine, go to
-<a href="http://git-scm.com" class="uri">http://git-scm.com</a>. Accept
-all defaults in the installation process. On Windows, installing Git
-will also install for you a minimal unix environment with a “bash” shell
-and terminal window. We won’t be using the “bash” shell much, if at all,
-but you should be aware of it.
+<a href="https://git-scm.com/download/" class="uri">https://git-scm.com/download/</a>.
+
+-   **NOTE**: When asked about “Adjusting your PATH environment”, make
+    sure to select “Git from the command line and also from 3rd-party
+    software”. Otherwise, accept all other defaults in the installation
+    process.
+
+On Windows, installing Git will also install a minimal unix environment
+with a “bash” shell and terminal window. We won’t be using the “bash”
+shell much, if we can avoid it, but you should be aware of it.
 
 #### Windows specific notes
 
 There will be an installer `.exe` file you need to download / click.
-Again, accept all the defaults. To see if you were successful, open a
-terminal window and type:
+Again, accept all the defaults except when asked about “Adjusting your
+PATH enivronment” (see **NOTE** above). To see if you were successful,
+open a terminal window and type:
 
 `git --version`
 
