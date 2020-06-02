@@ -100,7 +100,7 @@ Let’s check if RStudio can find the Git executable.
     Version Control? ![screenshot of version control
     option](img/version_control_option.GIF)
 -   Select *New Directory &gt; New Project* -&gt; Do you see a checkbox
-    “Create a git repository?” ![screenshot of create git
+    “Create a git repository”? ![screenshot of create git
     option](img/create_git_option.GIF)
 
 If you answered yes to the above questions then it looks like RStudio
