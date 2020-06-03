@@ -5,8 +5,7 @@ Now that we have all of the necessary tools installed, we need to start
 integrating them to allow for a collaborative and reproducible workflow.
 To do this we’re going to use Git and GitHub through the RStudio
 [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment).
-This week we’re going to cover some of the basics of that workflow. Just
-a quick reminder of what we covered last week:
+Just a quick reminder of what we covered last week:
 
 1.  You signed up for a free GitHub account
 2.  You installed Git
@@ -56,9 +55,9 @@ This should download all of the files from the GitHub PEP-2020 repo onto
 your local mahcine. Look in RStudio’s file browser pane to see all of
 the downloaded files. This is known as the `master` (or default) branch.
 
-### Set the `upstream` remote repo
+### Set the remote `upstream` repo
 
-It’s a good idea to set the `upstream` remote repo to your `master`
+It’s a good idea to set the remote `upstream` repo to your `master`
 branch in case you need to pull changes. To do this we’re going to click
 on “New Branch” in the Git pane. This will reveal a button to “Add
 Remote”. Click it. Enter `upstream` as the remote name and paste the URL
@@ -85,16 +84,12 @@ later on.
 
 To do this we’re going to click on “New Branch” in the Git pane.
 
-This will reveal a button to “Add Remote”. Click it. Enter `forked` as
-the remote name and paste the URL to the forked repo (it should look
-something like
-<a href="https://github.com/jmhatch/PEP-2020.git" class="uri">https://github.com/jmhatch/PEP-2020.git</a>).
+Provide a name for the branch. I usually just prefix the repo name with
+“fix-”, so in this example the branch would be named “fix-PEP-2020”.
 
-Click “Add”.
+Ensure that the “Remote:” is set to `origin`.
 
-Then provide a name for the branch. I usually just prefix the repo name
-with “fix-”, so in this example the branch would be named
-“fix-PEP-2020”.
+Click “Create”.
 
 ### Pull changes from `upstream`
 
