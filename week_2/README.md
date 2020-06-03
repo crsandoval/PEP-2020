@@ -89,8 +89,11 @@ This will reveal a button to “Add Remote”. Click it. Enter `forked` as
 the remote name and paste the URL to the forked repo (it should look
 something like
 <a href="https://github.com/jmhatch/PEP-2020.git" class="uri">https://github.com/jmhatch/PEP-2020.git</a>).
-Click “Add”. Then provide a name for the branch. I usually just prefix
-the repo name with “fix-”, so in this example the branch would be named
+
+Click “Add”.
+
+Then provide a name for the branch. I usually just prefix the repo name
+with “fix-”, so in this example the branch would be named
 “fix-PEP-2020”.
 
 ### Pull changes from `upstream`
@@ -103,9 +106,9 @@ open a shell (*Tools &gt; Shell…*) and type:
 **NOTE**: Make sure you’re on the `master` branch before running the git
 command above. Unfortunately, you cannot do this from RStudio.
 
-### Update branch with `master`
+#### Update branch with `master`
 
-In order to reflect the changes made to `master` in the branch
+In order to reflect the upstream changes made to `master` in the branch
 `fix-PEP-2020` (or whatever you called it), you will need to switch to
 the `fix-PEP-2020` branch and run:
 
@@ -115,5 +118,6 @@ Now the working branch will be up to date with `master`.
 
 ### Update fork
 
-After all the commits, you should push changes to your forked repo. You
-can use the green “Push” button in RStudio to do this.
+After making all the commits to your working branch, you should push
+changes to your forked repo. You can use the green “Push” button in
+RStudio to do this.
