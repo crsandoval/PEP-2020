@@ -87,9 +87,9 @@ To do this we’re going to click on “New Branch” in the Git pane.
 Provide a name for the branch. I usually just prefix the repo name with
 “fix-”, so in this example the branch would be named “fix-PEP-2020”.
 
-Ensure that the “Remote:” is set to `origin`.
+<!-- Ensure that the "Remote:" is set to `origin`. -->
 
-Click “Create”.
+<!-- Click "Create". -->
 
 ### Pull changes from `upstream`
 
