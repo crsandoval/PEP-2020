@@ -5,8 +5,8 @@ Now that we have all of the necessary tools installed, we need to start
 integrating them to allow for a collaborative and reproducible workflow.
 To do this we’re going to use Git and GitHub through the RStudio
 [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment).
-So this week we’re going to cover some of the basics of that workflow. A
-reminder of what we covered last week:
+This week we’re going to cover some of the basics of that workflow. Just
+a quick reminder of what we covered last week:
 
 1.  You signed up for a free GitHub account
 2.  You installed Git
@@ -21,7 +21,7 @@ reminder of what we covered last week:
 The PEP 2020 internship with the Sea Turtle Ecology Team already has a
 GitHub repo (see [here](https://github.com/Turtle-PSB-NOAA/PEP-2020)),
 so we can use that as a starting point to collaborate. “Fork and clone”
-is Git / GitHub speak for copying someone else’s repo in your GitHub
+is Git / GitHub speak for copying someone else’s repo into your GitHub
 account.
 
 First, sign into GitHub and navigate to the
@@ -34,7 +34,7 @@ account.
 
 ### Clone a repo via RStudio
 
-Now we need to **clone** the forked repo on your GiHub account to your
+Now we need to **clone** the forked repo from your GiHub account to your
 local machine.
 
 In RStudio, start a new project:
@@ -42,9 +42,9 @@ In RStudio, start a new project:
 -   *File &gt; New Project &gt; Version Control &gt; Git*. In the
     “repository URL” paste the URL of the forked GitHub repository from
     your GitHub account. It will be something like this
-    <a href="https://github.com/Turtle-PSB-NOAA/PEP-2020.git" class="uri">https://github.com/Turtle-PSB-NOAA/PEP-2020.git</a>
+    <a href="https://github.com/jmhatch/PEP-2020.git" class="uri">https://github.com/jmhatch/PEP-2020.git</a>
     ![screenshot of clone GitHub repo](img/gihub_clone.GIF)
--   Be intentional about where you create this Project
+-   Be intentional about where you create this project
 -   Suggest you “Open in new session”
 -   Click “Create Project” to create a new directory, which will be all
     of these things:
@@ -58,7 +58,7 @@ the downloaded files. This is known as the `master` (or default) branch.
 
 ### Set the `upstream` remote repo
 
-It’s a good idea to set the `upstream` remote repo to you local `master`
+It’s a good idea to set the `upstream` remote repo to your `master`
 branch in case you need to pull changes. To do this we’re going to click
 on “New Branch” in the Git pane. This will reveal a button to “Add
 Remote”. Click it. Enter `upstream` as the remote name and paste the URL
@@ -74,34 +74,38 @@ shell (*Tools &gt; Shell…*):
 You should see four repos listed, two labaled with `origin` and two
 labeled with `upstream`.
 
-### Never work on a local `master` branch
+### Never work on a `master` branch
 
 To work on the local PEP-2020 repo we first need to create a branch
 (named something other than `master`), which will make things easier if
-something goes awry. To do this we’re going to click on “New Branch” in
-the Git pane. In the “Remote” drop-down menu choose “(None)”. Then
-provide a name for the branch (I usually just prefix the repo name with
-“fix-”, so in this example the branch would be named “fix-PEP-2020”) and
-hit “Create”.
+something goes awry.
+
+To do this we’re going to click on “New Branch” in the Git pane.
+
+In the “Remote” drop-down menu choose “(None)”. Then provide a name for
+the branch (I usually just prefix the repo name with “fix-”), so in this
+example the branch would be named “fix-PEP-2020”.
+
+Hit “Create”.
 
 #### Pull changes from `upstream`
 
-To pull changes from `upstream` into your local `master` copy you will
-need to switch to the `origin/master` branch (if you’re not alreay on
-that local branch), open a shell (*Tools &gt; Shell…*), and then type:
+To pull changes from `upstream` into your `master` copy you will need to
+open a shell (*Tools &gt; Shell…*) and then type:
 
 `git pull upstream master --ff-only`
 
-Unfortunately, you cannot do this from RStudio. Next you need to push
-these changes to your forked repo.
-
-I’m not that well versed in Git or GitHub, but sometimes the merge
-between `master` and `origin\master` using the command
-`git pull upstream master --ff-only` doesn’t fully register. So RStudio
-says that `master` is ahead of `origin\master` by some number of
-commits. By running `git diff master origin/master` it is obvious that
-the `origin\master`
+**NOTE**: Make sure you’re on the `master` branch before running the git
+command above. Unfortunately, you cannot do this from RStudio. Next you
+need to push these changes to your forked repo. You can use the green
+“Push” button in RStudio to do this.
 
 #### Update branch with `master`
 
+In order to reflect the changes made to `master` in the branch
+`fix-PEP-2020` (or whatever you called it), you will need to switch to
+the `fix-PEP-2020` branch and run:
+
 `git merge master`
+
+Now the working branch will be up to date with `master`.
