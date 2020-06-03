@@ -74,7 +74,10 @@ shell (*Tools &gt; Shell…*):
 You should see four repos listed, two labaled with `origin` and two
 labeled with `upstream`.
 
-### Never work on a `master` branch
+2 - Work locally
+----------------
+
+### Never alter `master`
 
 To work on the local PEP-2020 repo we first need to create a branch
 (named something other than `master`), which will make things easier if
@@ -82,16 +85,18 @@ something goes awry.
 
 To do this we’re going to click on “New Branch” in the Git pane.
 
-In the “Remote” drop-down menu choose “(None)”. Then provide a name for
-the branch (I usually just prefix the repo name with “fix-”), so in this
-example the branch would be named “fix-PEP-2020”.
-
-Hit “Create”.
+This will reveal a button to “Add Remote”. Click it. Enter `forked` as
+the remote name and paste the URL to the forked repo (it should look
+something like
+<a href="https://github.com/jmhatch/PEP-2020.git" class="uri">https://github.com/jmhatch/PEP-2020.git</a>).
+Click “Add”. Then provide a name for the branch (I usually just prefix
+the repo name with “fix-”), so in this example the branch would be named
+“fix-PEP-2020”.
 
 #### Pull changes from `upstream`
 
 To pull changes from `upstream` into your `master` copy you will need to
-open a shell (*Tools &gt; Shell…*) and then type:
+open a shell (*Tools &gt; Shell…*) and type:
 
 `git pull upstream master --ff-only`
 
