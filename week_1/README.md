@@ -3,7 +3,7 @@ Week 1
 
 Throughout this internship we will be using specific tools to work on
 the research project. This is a tutorial to help you install those tools
-on your computer. These include:
+on your computer. Those tools include:
 
 1.  GitHub
 2.  Git
@@ -50,10 +50,10 @@ shell much, if we can avoid it, but you should be aware of it.
 
 #### Windows specific notes
 
-There will be an installer `.exe` file you need to download / click.
-Again, accept all the defaults except when asked about “Adjusting your
-PATH enivronment” (see **NOTE** above). To see if you were successful,
-open a terminal window and type:
+There will be an installer `.exe` file you need to download / double
+click. Again, accept all the defaults except when asked about “Adjusting
+your PATH enivronment” (see **NOTE** above). To see if you were
+successful, open a terminal window and type:
 
 `git --version`
 
@@ -61,7 +61,7 @@ If you see something like
 
 `git version 2.25.1.windows.1`
 
-Then the installation was a success!
+then the installation was a success!
 
 At this point you will have Git installed. You can bring up “git bash”
 either from your start menu, or from the right click menu on any folder
