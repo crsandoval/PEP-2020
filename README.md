@@ -29,7 +29,7 @@
             <a href="" title="Code">:computer:</a>
         </td>
         <td align = "center">
-            <img width="100px" height="100px" alt="Christopher Sandoval" src="img/default.png" />
+            <img width="100px" height="100px" alt="Christopher Sandoval" src="img/utep_logo.png" />
             <br/><sub><b>Christopher Sandoval</b></sub></a><br/>
             <a href="" title="Code">:computer:</a>
         </td>
