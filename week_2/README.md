@@ -80,8 +80,8 @@ labeled with `upstream`.
 ### Never alter `master`
 
 To work on the local PEP-2020 repo we first need to create a branch
-(named something other than `master`), which will make things easier if
-something goes awry.
+(named something other than `master`), which will make things easier
+later on.
 
 To do this we’re going to click on “New Branch” in the Git pane.
 
@@ -89,8 +89,8 @@ This will reveal a button to “Add Remote”. Click it. Enter `forked` as
 the remote name and paste the URL to the forked repo (it should look
 something like
 <a href="https://github.com/jmhatch/PEP-2020.git" class="uri">https://github.com/jmhatch/PEP-2020.git</a>).
-Click “Add”. Then provide a name for the branch (I usually just prefix
-the repo name with “fix-”), so in this example the branch would be named
+Click “Add”. Then provide a name for the branch. I usually just prefix
+the repo name with “fix-”, so in this example the branch would be named
 “fix-PEP-2020”.
 
 ### Pull changes from `upstream`
@@ -101,9 +101,7 @@ open a shell (*Tools &gt; Shell…*) and type:
 `git pull upstream master --ff-only`
 
 **NOTE**: Make sure you’re on the `master` branch before running the git
-command above. Unfortunately, you cannot do this from RStudio. Next you
-need to push these changes to your forked repo. You can use the green
-“Push” button in RStudio to do this.
+command above. Unfortunately, you cannot do this from RStudio.
 
 ### Update branch with `master`
 
@@ -114,3 +112,8 @@ the `fix-PEP-2020` branch and run:
 `git merge master`
 
 Now the working branch will be up to date with `master`.
+
+### Update fork
+
+After all the commits, you should push changes to your forked repo. You
+can use the green “Push” button in RStudio to do this.
