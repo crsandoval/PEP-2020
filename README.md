@@ -1,7 +1,5 @@
 # PEP Summer 2020 Internship <a href="https://www.woodsholediversity.org/pep/">:sparkles:</a>
 
-**TEST**: I made a change!
-
 ## Sea Turtle Ecology Team members
 <table>
     <tr>
