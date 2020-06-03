@@ -93,7 +93,7 @@ Click “Add”. Then provide a name for the branch (I usually just prefix
 the repo name with “fix-”), so in this example the branch would be named
 “fix-PEP-2020”.
 
-#### Pull changes from `upstream`
+### Pull changes from `upstream`
 
 To pull changes from `upstream` into your `master` copy you will need to
 open a shell (*Tools &gt; Shell…*) and type:
@@ -105,7 +105,7 @@ command above. Unfortunately, you cannot do this from RStudio. Next you
 need to push these changes to your forked repo. You can use the green
 “Push” button in RStudio to do this.
 
-#### Update branch with `master`
+### Update branch with `master`
 
 In order to reflect the changes made to `master` in the branch
 `fix-PEP-2020` (or whatever you called it), you will need to switch to
