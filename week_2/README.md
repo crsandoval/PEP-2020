@@ -87,8 +87,14 @@ To do this we’re going to click on “New Branch” in the Git pane.
 Provide a name for the branch. I usually just prefix the repo name with
 “fix-”, so in this example the branch would be named “fix-PEP-2020”.
 
-<!-- Ensure that the "Remote:" is set to `origin`. -->
-<!-- Click "Create". -->
+Ensure that the “Remote:” is set to `origin`.
+
+Click “Create”.
+
+This will create a remote branch `fix-PEP-2020` from `origin\master`
+(ie, `PEP-2020`) on your GitHub account.
+
+<!-- git push origin --delete test ## deletes a remote branch -->
 
 ### Pull changes from `upstream`
 
@@ -113,6 +119,5 @@ Now the working branch will be up to date with `master`.
 ### Update fork
 
 After making all the commits to your working branch, you should push
-changes to your forked repo.
-
-<!-- You can use the green “Push” button in RStudio to do this. -->
+changes to your remote repo. You can use the green “Push” button in
+RStudio to do this.
