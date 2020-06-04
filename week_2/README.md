@@ -70,7 +70,7 @@ shell (*Tools &gt; Shell…*):
 
 `git remote -v`
 
-You should see four repos listed, two labaled with `origin` and two
+You should see four repos listed, two labeled with `origin` and two
 labeled with `upstream`.
 
 2 - Work locally
