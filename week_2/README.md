@@ -91,8 +91,8 @@ Ensure that the “Remote:” is set to `origin`.
 
 Click “Create”.
 
-This will create a remote branch `fix-PEP-2020` from `origin\master`
-(ie, `PEP-2020`) on your GitHub account.
+This will also create a remote branch `fix-PEP-2020` from
+`origin\master` (ie, `PEP-2020`) on your GitHub account.
 
 <!-- git push origin --delete test ## deletes a remote branch -->
 
@@ -116,8 +116,8 @@ the `fix-PEP-2020` branch and run:
 
 Now the working branch will be up to date with `master`.
 
-### Update fork
+### Update forked branch
 
-After making all the commits to your working branch, you should push
-changes to your remote repo. You can use the green “Push” button in
+After making all the commits to your working local branch, you should
+push changes to your remote repo. You can use the green “Push” button in
 RStudio to do this.
