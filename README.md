@@ -45,8 +45,8 @@
 ## Schedule
 | Week | Title | Date | Materials |
 | :---: | :---: | :---: | :---: |
-| 1 | Gitting started | June 1, 2020 | [README](https://github.com/Turtle-PSB-NOAA/PEP-2020/tree/master/week_1) | 
-| 2 | Workflow | June 8, 2020 | [README](https://github.com/Turtle-PSB-NOAA/PEP-2020/tree/master/week_2) | 
+| 1 | Gitting started | June 1, 2020 | [README](week_1) | 
+| 2 | Workflow | June 8, 2020 | [README](week_2) | 
 
 ## Credits
 We should stand on the shoulders of giants! That being said, a lot of the materials presented here were taken from the course website [Introduction to Data Science](https://datasciencelabs.github.io/) and [Happy Git and GitHub for the UseR](https://happygitwithr.com/). We can't thank them enough for making their course materials publicly available.
