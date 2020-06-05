@@ -40,13 +40,13 @@
 | Meeting type | Title | Date | Notes | Materials |
 | :---: | :---: | :---: | :---: | :---: |
 | Virtual | Introductions | May 29, 2020 | Click [here](https://docs.google.com/document/d/1iqOUm5e4UyHBLjaCJyvbvfXfv8V2INnmWWQokkJhZqE/edit?usp=sharing) | [Mentor-mentee Agreement](https://docs.google.com/document/d/1U9JwfIqtUa--cNdYOpbBjmLP1cpyFvBQqz4LzOSyZeI/edit?usp=sharing) |
-| Virtual | Week 1 | June 4, 2020 | Click [here](https://docs.google.com/document/d/13_i8dGmxDLojX-7ZNn7idtqVwm94vd96K8r4ozlZMAQ/edit?usp=sharing) | None |
+| Virtual | Week 1 | June 5, 2020 | Click [here](https://docs.google.com/document/d/13_i8dGmxDLojX-7ZNn7idtqVwm94vd96K8r4ozlZMAQ/edit?usp=sharing) | None |
 
 ## Schedule
 | Week | Title | Date | Materials |
 | :---: | :---: | :---: | :---: |
-| 1 | Gitting started | June 1, 2020 | [README](week_1) | 
-| 2 | Workflow | June 8, 2020 | [README](week_2) | 
+| 1 | Gitting started | June 8, 2020 | [README](week_1) | 
+| 2 | Workflow | June 15, 2020 | [README](week_2) | 
 
 ## Credits
 We should stand on the shoulders of giants! That being said, a lot of the materials presented here were taken from the course website [Introduction to Data Science](https://datasciencelabs.github.io/) and [Happy Git and GitHub for the UseR](https://happygitwithr.com/). We can't thank them enough for making their course materials publicly available.
