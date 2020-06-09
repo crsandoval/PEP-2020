@@ -48,5 +48,15 @@
 | 1 | Gitting started | June 8, 2020 | [README](week_1) | 
 | 2 | Workflow | June 15, 2020 | [README](week_2) | 
 
+## References (reading materials)
+
+### Compressing Dive Data 
+* [Fedak et al. 2001](refs/Fedak01 two approaches.pdf)
+* [Fedak et al. 2002](refs/Fedak_2002_Overcoming_constraints.pdf)
+* [Photopoulou et al. 2014](refs/Photopoulou et al. 2014.pdf)
+
+### Sea Turtle Diving Behavior
+* [Hochscheid 2014](refs/HochscheidJEMBE2014.pdf)
+
 ## Credits
 We should stand on the shoulders of giants! That being said, a lot of the materials presented here were taken from the course website [Introduction to Data Science](https://datasciencelabs.github.io/) and [Happy Git and GitHub for the UseR](https://happygitwithr.com/). We can't thank them enough for making their course materials publicly available.
