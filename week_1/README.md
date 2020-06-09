@@ -57,11 +57,8 @@ successful, open a terminal window and type:
 
 `git --version`
 
-If you see something like
-
-`git version 2.25.1.windows.1`
-
-then the installation was a success!
+If you see something like `git version 2.25.1.windows.1` then the
+installation was a success!
 
 At this point you will have Git installed. You can bring up “git bash”
 either from your start menu, or from the right click menu on any folder
@@ -96,8 +93,8 @@ Accept all defaults in the installation process.
 
 Let’s check if RStudio can find the Git executable.
 
--   *File &gt; New Project…* -&gt; Do you see an option to create from
-    Version Control? ![screenshot of version control
+-   Click *File &gt; New Project…* -&gt; Do you see an option to create
+    project from Version Control? ![screenshot of version control
     option](img/version_control_option.GIF)
 -   Select *New Directory &gt; New Project* -&gt; Do you see a checkbox
     “Create a git repository”? ![screenshot of create git
