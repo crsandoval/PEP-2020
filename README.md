@@ -51,9 +51,9 @@
 ## References (reading materials)
 
 ### Compressing Dive Data 
-* [Fedak et al. 2001](refs/Fedak01 two approaches.pdf)
+* [Fedak et al. 2001](refs/Fedak01_two_approaches.pdf)
 * [Fedak et al. 2002](refs/Fedak_2002_Overcoming_constraints.pdf)
-* [Photopoulou et al. 2014](refs/Photopoulou et al. 2014.pdf)
+* [Photopoulou et al. 2014](refs/Photopoulou_et_al_2014.pdf)
 
 ### Sea Turtle Diving Behavior
 * [Hochscheid 2014](refs/HochscheidJEMBE2014.pdf)
