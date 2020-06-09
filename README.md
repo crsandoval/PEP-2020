@@ -61,5 +61,13 @@
 ### Tidy Data
 * [Wickham 2014](refs/v59i10.pdf)
 
+## Authorship Expectations
+
+PSB Sea Turtle Team Authorship Expectations, Last revision in May of 2011:
+
+Authorship should denote the individuals who are taking credit, responsibility, and accountability for the research.  In general, we agreed that anyone who makes a substantial intellectual contribution to the conception, design, data collection, data analysis, or manuscript preparation should be included as an author.  Providing funding alone, without additional contributions, typically would not qualify for authorship.  We also agreed that typically the lead author should be the primary author responsible for manuscript preparations as well as shepherding the manuscript through the review process (including response to reviews) until final publication.
+
+We acknowledged that our overall intention is to be fair, and we pondered how to handle sweat-equity issues, especially when there are minimal intellectual contributions.  We agreed that in cases where there are multiple data collectors who are following predetermined protocols, it would be more appropriate to list the data collectors in the acknowledgements than as co-authors (unless they made other contributions).  We did not agree on a universal authorship strategy for cases where there was only a single data collector (who did not make an intellectual contribution) and the data collection was extensive, but routine.
+
 ## Credits
 We should stand on the shoulders of giants! That being said, a lot of the materials presented here were taken from the course website [Introduction to Data Science](https://datasciencelabs.github.io/) and [Happy Git and GitHub for the UseR](https://happygitwithr.com/). We can't thank them enough for making their course materials publicly available.
