@@ -58,5 +58,8 @@
 ### Sea Turtle Diving Behavior
 * [Hochscheid 2014](refs/HochscheidJEMBE2014.pdf)
 
+### Tidy Data
+* [Wickham 2014](refs/v59i10.pdf)
+
 ## Credits
 We should stand on the shoulders of giants! That being said, a lot of the materials presented here were taken from the course website [Introduction to Data Science](https://datasciencelabs.github.io/) and [Happy Git and GitHub for the UseR](https://happygitwithr.com/). We can't thank them enough for making their course materials publicly available.
