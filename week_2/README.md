@@ -19,9 +19,8 @@ Just a quick reminder of what we covered last week:
 
 The PEP 2020 internship with the Sea Turtle Ecology Team already has a
 GitHub repo (see [here](https://github.com/Turtle-PSB-NOAA/PEP-2020)),
-so we can use that as a starting point to collaborate. “Fork and clone”
-is Git / GitHub speak for copying someone else’s repo into your GitHub
-account.
+so we can use that as a starting point to collaborate. “Fork” is Git /
+GitHub speak for copying someone else’s repo into your GitHub account.
 
 First, sign into GitHub and navigate to the
 [PEP-2020](https://github.com/Turtle-PSB-NOAA/PEP-2020) repo.
@@ -29,7 +28,8 @@ First, sign into GitHub and navigate to the
 In the upper right hand corner, click **Fork**.
 
 Voilà! Now you should have a copy of the PEP-2020 repo in your GitHub
-account.
+account. An important thing to note is that GitHub will not sync changes
+made in the original repository (upstream repo) with your forked copy.
 
 ### Clone a repo via RStudio
 
@@ -38,13 +38,13 @@ local machine.
 
 In RStudio, start a new project:
 
--   *File &gt; New Project &gt; Version Control &gt; Git*. In the
+-   Click *File &gt; New Project &gt; Version Control &gt; Git*. In the
     “repository URL” paste the URL of the forked GitHub repository from
     your GitHub account. It will be something like this
     <a href="https://github.com/jmhatch/PEP-2020.git" class="uri">https://github.com/jmhatch/PEP-2020.git</a>
     ![screenshot of clone GitHub repo](img/github_clone.GIF)
 -   Be intentional about where you create this project
--   Suggest you “Open in new session”
+-   Suggest that you “Open in new session”
 -   Click “Create Project” to create a new directory, which will be all
     of these things:
     -   a directory or “folder” on your computer
@@ -66,12 +66,20 @@ Click “Add”. Decline the opportunity to add a new branch by clicking
 “Cancel”.
 
 Now let’s take a look at the current remotes for our local repo in the
-shell (*Tools &gt; Shell…*):
+shell (Click *Tools &gt; Shell…*) and type:
 
 `git remote -v`
 
 You should see four repos listed, two labeled with `origin` and two
 labeled with `upstream`.
+
+### Quick summary
+
+So far we forked (copied) a GitHub repo into our GitHub account and then
+cloned (downloaded) the forked repo onto our local machine. We then told
+git where the original repository (the one we forked / cloned) is
+located, just in case we need to sync up any changes made in the
+original repo to our local `master` copy.
 
 2 - Work locally
 ----------------
@@ -92,14 +100,14 @@ Ensure that the “Remote:” is set to `origin`.
 Click “Create”.
 
 This will also create a remote branch `fix-PEP-2020` from
-`origin\master` (ie, `PEP-2020`) on your GitHub account.
+`origin\master` (ie, the forked `PEP-2020`) on your GitHub account.
 
 <!-- git push origin --delete test ## deletes a remote branch -->
 
 ### Pull changes from `upstream`
 
 To pull changes from `upstream` into your `master` copy you will need to
-open a shell (*Tools &gt; Shell…*) and type:
+open a shell (Click *Tools &gt; Shell…*) and type:
 
 `git pull upstream master --ff-only`
 
@@ -114,7 +122,7 @@ the `fix-PEP-2020` branch and run:
 
 `git merge master`
 
-Now the working branch will be up to date with `master`.
+Now the working branch will be up to date (synced) with `master`.
 
 ### Update forked branch
 
