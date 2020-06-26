@@ -18,8 +18,9 @@ A data table is essentially an unordered list that contains columns
 integer, double, character, datetime). A row (record) is a single entry
 in the table that has various columns (attributes). You will often hear
 us use the term ‘schema’, which basically outlines the table name, its
-attributes, and their data types. A subset of the TE\_DIVE data table
-can be found below.
+attributes, and their data types. We will walk thru these concepts using
+a subset of the TE\_DIVE data table (the data you’ll be using), as shown
+below.
 
     ## # A tibble: 264,622 x 6
     ##    REF       NEWPTT DS_DATE            DE_DATE              LON   LAT
@@ -51,4 +52,4 @@ WHERE <conditions>
 ```
 
 There are a lot more bells and whistles to SQL, but you’ll have to
-research those on your own time.
+research those on your own.
