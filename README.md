@@ -64,11 +64,31 @@
 
 ## Authorship Expectations
 
-PSB Sea Turtle Team Authorship Expectations, Last revision in May of 2011:
+PSB Sea Turtle Team Authorship Expectations, Last revision in June of 2020:
 
-Authorship should denote the individuals who are taking credit, responsibility, and accountability for the research.  In general, we agreed that anyone who makes a substantial intellectual contribution to the conception, design, data collection, data analysis, or manuscript preparation should be included as an author.  Providing funding alone, without additional contributions, typically would not qualify for authorship.  We also agreed that typically the lead author should be the primary author responsible for manuscript preparations as well as shepherding the manuscript through the review process (including response to reviews) until final publication.
+**Authorship** should denote the individuals who are taking credit, responsibility, and accountability for the research.  
 
-We acknowledged that our overall intention is to be fair, and we pondered how to handle sweat-equity issues, especially when there are minimal intellectual contributions.  We agreed that in cases where there are multiple data collectors who are following predetermined protocols, it would be more appropriate to list the data collectors in the acknowledgements than as co-authors (unless they made other contributions).  We did not agree on a universal authorship strategy for cases where there was only a single data collector (who did not make an intellectual contribution) and the data collection was extensive, but routine.
+**Each author** is expected to have drafted the work or substantively revised it; or to have made a substantial intellectual contribution to at least one of the following:
+* the conception or design of the work; 
+* the data acquisition; data analysis; or interpretation of data; 
+* the creation of new software used in the work;
+
+**AND** each author is expected to have approved the submitted version and any substantially modified version; 
+
+**AND** each author is expected to have agreed to be personally accountable for the author's own contributions and to be involved enough to be able to explain the main points of the manuscript and vouch for the overall accuracy and integrity of the work.
+
+The above guidelines were adapted from the Scientific Reports author guidelines which were adapted from _McNutt et al_. 2018, DOI: 10.1073/pnas.1715374115.  The target journal’s authorship guidelines may also be used to evaluate authorship, and the situation will be discussed by the team.
+
+The following are general guidelines for authorship within the TE group:
+
+* We strive to discuss authorship expectations in the beginning stages of project planning. 
+The primary author is responsible for manuscript preparations and coordinating communication among coauthors.  Typically, though not always, the primary author will also be the corresponding author.
+* The corresponding author is responsible for shepherding the manuscript through the review process (including response to reviews) until final publication.
+* When someone makes a substantial intellectual contribution to the way we conduct research, it would typically be appropriate to have that contributor be a coauthor on the first manuscript that uses the new approach, but not on all subsequent manuscripts.
+* Providing funding alone, without additional contributions, typically would not qualify for authorship.  
+* Routine data collection, especially when following established protocols, does not generally warrant authorship.  There is wiggle room for cases where data collection roles were extensive or otherwise out of the ordinary.
+* Routine data management typically does not warrant authorship.  There is wiggle room for cases where data management was particularly innovative or allowed coauthors to understand the data in unexpected ways. 
+* As people begin to request more of our data, we need to think of efficient and equitable ways to identify individuals who will be taking credit, responsibility, and accountability for the research.
 
 ## Credits
 We should stand on the shoulders of giants! That being said, a lot of the materials presented here were taken from the course website [Introduction to Data Science](https://datasciencelabs.github.io/) and [Happy Git and GitHub for the UseR](https://happygitwithr.com/). We can't thank them enough for making their course materials publicly available.
