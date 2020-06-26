@@ -71,6 +71,6 @@ dbs_conn = dbConnect(odbc::odbc(), driver = "Microsoft Access Driver (*.mdb, *.a
 ## get dive data
 dive = dbGetQuery(conn = dbs_conn, statement = 'select * from TE_DIVE') 
 
-## clode database connection
+## close database connection
 dbDisconnect(dbs_conn)
 ```
