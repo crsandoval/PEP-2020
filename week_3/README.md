@@ -59,13 +59,11 @@ Connect R to a Database
 
 First, you will need to save the `data` folder that contains the *.csv
 and *.accdb files into the `PEP-2020` folder that you setup in [Week
-2](../week_2).
+2](../week_2). Now we’ll run some R code:
 
 ``` r
 ## load libraries
 library(DBI)
-library(dplyr)
-library(readr)
 
 ## connect to database
 dbs_conn = dbConnect(odbc::odbc(), driver = "Microsoft Access Driver (*.mdb, *.accdb)", dbq = here::here('data', 'te_dive_20200626.accdb')) 
