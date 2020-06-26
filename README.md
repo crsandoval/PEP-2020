@@ -47,6 +47,7 @@
 | :---: | :---: | :---: | :---: |
 | 1 | Gitting started | June 8, 2020 | [README](week_1) | 
 | 2 | Workflow | June 15, 2020 | [README](week_2) | 
+| 3 | Workflow | June 29, 2020 | [README](week_3) | 
 
 ## References (reading materials)
 
