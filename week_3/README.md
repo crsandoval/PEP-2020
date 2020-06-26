@@ -40,7 +40,7 @@ can be found below.
 
 Structured Query Language (SQL) is a standard language for querying and
 manipulating data. Essentially, SQL is the language we use to
-communicate with the database.
+communicate with a database.
 
 The basic form for a SQL query is as follows:
 
@@ -50,5 +50,5 @@ FROM <one or more tables>
 WHERE <conditions>
 ```
 
-There are a lot more bells and whistles to SQL, but that you’ll have to
+There are a lot more bells and whistles to SQL, but you’ll have to
 research those on your own time.
