@@ -59,4 +59,4 @@ Connect R to a Database
 
 First, you will need to save the `data` folder that contains the *.csv
 and *.accdb files into the `PEP-2020` folder that you setup in [Week
-2](./week_2).
+2](../week_2).
