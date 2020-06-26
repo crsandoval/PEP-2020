@@ -18,7 +18,8 @@ A data table is essentially an unordered list that contains columns
 integer, double, character, datetime). A row (record) is a single entry
 in the table that has various columns (attributes). You will often hear
 us use the term ‘schema’, which basically outlines the table name, its
-attributes, and their data types.
+attributes, and their data types. A subset of the TE\_DIVE data table
+can be found below.
 
     ## # A tibble: 264,622 x 6
     ##    REF       NEWPTT DS_DATE            DE_DATE              LON   LAT
@@ -34,3 +35,20 @@ attributes, and their data types.
     ##  9 tu55-1-09  97623 14-SEP-09 06:02:20 14-SEP-09 06:18:20 -73.8  38.6
     ## 10 tu55-1-09  97623 14-SEP-09 07:34:40 14-SEP-09 07:50:40 -73.8  38.6
     ## # ... with 264,612 more rows
+
+### SQL
+
+Structured Query Language (SQL) is a standard language for querying and
+manipulating data. Essentially, SQL is the language we use to
+communicate with the database.
+
+The basic form for a SQL query is as follows:
+
+``` sql
+SELECT <columns>
+FROM <one or more tables>
+WHERE <conditions>
+```
+
+There are a lot more bells and whistles to SQL, but that you’ll have to
+research those on your own time.
