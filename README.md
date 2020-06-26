@@ -77,7 +77,7 @@ PSB Sea Turtle Team Authorship Expectations, Last revision in June of 2020:
 
 **AND** each author is expected to have agreed to be personally accountable for the author's own contributions and to be involved enough to be able to explain the main points of the manuscript and vouch for the overall accuracy and integrity of the work.
 
-The above guidelines were adapted from the Scientific Reports author guidelines which were adapted from [<ins>McNutt et al</ins>. 2018](https://doi.org/10.1073/pnas.1715374115).  The target journal’s authorship guidelines may also be used to evaluate authorship, and the situation will be discussed by the team.
+The above guidelines were adapted from the Scientific Reports author guidelines which were adapted from [<ins>McNutt et al. 2018</ins>](https://doi.org/10.1073/pnas.1715374115).  The target journal’s authorship guidelines may also be used to evaluate authorship, and the situation will be discussed by the team.
 
 The following are general guidelines for authorship within the TE group:
 
