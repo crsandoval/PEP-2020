@@ -55,13 +55,13 @@ click. Again, accept all the defaults except when asked about “Adjusting
 your PATH enivronment” (see **NOTE** above). To see if you were
 successful, open a terminal window:
 
-![screenshot of terminal window](img/open_terminal_window.png)
+![screenshot of terminal window](img/open_terminal_window.gif)
 
 Then type:
 
 `git --version`
 
-![screenshot of successful git install](img/git_installed.png)
+![screenshot of successful git install](img/git_installed.gif)
 
 If you see something like `git version 2.25.1.windows.1` then the
 installation was a success!
@@ -99,12 +99,23 @@ Accept all defaults in the installation process.
 
 Let’s check if RStudio can find the Git executable.
 
--   Click *File &gt; New Project…* -&gt; Do you see an option to create
-    project from Version Control? ![screenshot of version control
-    option](img/version_control_option.GIF)
--   Select *New Directory &gt; New Project* -&gt; Do you see a checkbox
-    “Create a git repository”? ![screenshot of create git
-    option](img/create_git_option.GIF)
+-   Click *File &gt; New Project…*
+
+![screenshot of version control option](img/RStudio_git_test_1.gif)
+
+Do you see an option to create project from Version Control?
+
+-   Select *New Directory*
+
+![screenshot of selecting new directory](img/select_new_directory.gif)
+
+-   Then select *New Project*
+
+![screenshot of selecting new project](img/select_new_project.gif)
+
+Do you see a checkbox “Create a git repository”?
+
+![screenshot of create git option](img/RStudio_git_test_2.gif)
 
 If you answered yes to the above questions then it looks like RStudio
 and Git are talking to each other. Otherwise, we may need to do some
