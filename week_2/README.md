@@ -12,6 +12,11 @@ Just a quick reminder of what we covered last week:
 3.  You installed / updated R à la RStudio
 4.  You made sure RStudio could detect Git on your local machine
 
+Overview
+--------
+
+![flowchart of workflow](img/overview.jpg)
+
 1 - GitHub first, RStudio second
 --------------------------------
 
