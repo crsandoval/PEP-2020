@@ -39,7 +39,7 @@ Now we need to **clone** the forked repo from your GiHub account to your
 local machine.
 
 ![gif of how to clone GitHub repo to local
-machine](img/Github_cloning.gif)
+machine](img/GitHub_cloning.gif)
 
 In RStudio, start a new project:
 
