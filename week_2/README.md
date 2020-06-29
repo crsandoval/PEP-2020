@@ -30,7 +30,7 @@ GitHub speak for copying someone else’s repo into your GitHub account.
 First, sign into GitHub and navigate to the
 [PEP-2020](https://github.com/Turtle-PSB-NOAA/PEP-2020) repo.
 
-In the upper right hand corner, click **Fork**.
+In the upper right hand corner, click “Fork”.
 
 ![screenshot of forking GitHub repo](img/GitHub_fork.gif)
 
