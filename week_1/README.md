@@ -53,9 +53,15 @@ shell much, if we can avoid it, but you should be aware of it.
 There will be an installer `.exe` file you need to download / double
 click. Again, accept all the defaults except when asked about “Adjusting
 your PATH enivronment” (see **NOTE** above). To see if you were
-successful, open a terminal window and type:
+successful, open a terminal window:
+
+![screenshot of terminal window](img/open_terminal_window.png)
+
+Then type:
 
 `git --version`
+
+![screenshot of successful git install](img/git_installed.png)
 
 If you see something like `git version 2.25.1.windows.1` then the
 installation was a success!
