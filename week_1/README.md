@@ -99,23 +99,17 @@ Accept all defaults in the installation process.
 
 Let’s check if RStudio can find the Git executable.
 
--   Click *File &gt; New Project…*
+-   Click *File &gt; New Project…* Do you see an option to create
+    project from Version Control? ![screenshot of version control
+    option](img/RStudio_git_test_1.gif)
 
-Do you see an option to create project from Version Control?
+-   Now select *New Directory* ![screenshot of selecting new
+    directory](img/select_new_directory.gif)
 
-![screenshot of version control option](img/RStudio_git_test_1.gif)
-
--   Now select *New Directory*
-
-![screenshot of selecting new directory](img/select_new_directory.gif)
-
--   Then select *New Project*
-
-![screenshot of selecting new project](img/select_new_project.gif)
-
-Do you see a checkbox labeled “Create a git repository”?
-
-![screenshot of create git option](img/RStudio_git_test_2.gif)
+-   Then select *New Project* ![screenshot of selecting new
+    project](img/select_new_project.gif) Do you see a checkbox labeled
+    “Create a git repository”? ![screenshot of create git
+    option](img/RStudio_git_test_2.gif)
 
 If you answered yes to the above questions then it looks like RStudio
 and Git are talking to each other. Otherwise, we may need to do some

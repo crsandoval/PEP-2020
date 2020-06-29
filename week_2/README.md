@@ -25,7 +25,9 @@ GitHub speak for copying someone else’s repo into your GitHub account.
 First, sign into GitHub and navigate to the
 [PEP-2020](https://github.com/Turtle-PSB-NOAA/PEP-2020) repo.
 
-In the upper right hand corner, click **Fork**.
+In the upper right hand corner, click **Fork**:
+
+![screenshot of forking GitHub repo](img/GitHub_fork.gif)
 
 Voilà! Now you should have a copy of the PEP-2020 repo in your GitHub
 account. An important thing to note is that GitHub will not sync changes
@@ -36,13 +38,15 @@ made in the original repository (upstream repo) with your forked copy.
 Now we need to **clone** the forked repo from your GiHub account to your
 local machine.
 
+![gif of how to clone GitHub repo to local
+machine](img/Github_cloning.gif)
+
 In RStudio, start a new project:
 
 -   Click *File &gt; New Project &gt; Version Control &gt; Git*. In the
     “repository URL” paste the URL of the forked GitHub repository from
     your GitHub account. It will be something like this
     <a href="https://github.com/jmhatch/PEP-2020.git" class="uri">https://github.com/jmhatch/PEP-2020.git</a>
-    ![screenshot of clone GitHub repo](img/github_clone.GIF)
 -   Be intentional about where you create this project
 -   Suggest that you “Open in new session”
 -   Click “Create Project” to create a new directory, which will be all
@@ -58,12 +62,10 @@ the downloaded files. This is known as the `master` (or default) branch.
 ### Set the remote `upstream` repo
 
 It’s a good idea to set the remote `upstream` repo to your `master`
-branch in case you need to pull changes. To do this we’re going to click
-on “New Branch” in the Git pane. This will reveal a button to “Add
-Remote”. Click it. Enter `upstream` as the remote name and paste the URL
-<a href="https://github.com/Turtle-PSB-NOAA/PEP-2020.git" class="uri">https://github.com/Turtle-PSB-NOAA/PEP-2020.git</a>.
-Click “Add”. Decline the opportunity to add a new branch by clicking
-“Cancel”.
+branch in case you need to pull changes. Use a command like this (Click
+*Tools &gt; Shell…*),
+
+`git remote add upstream https://github.com/Turtle-PSB-NOAA/PEP-2020.git`
 
 Now let’s take a look at the current remotes for our local repo in the
 shell (Click *Tools &gt; Shell…*) and type:
