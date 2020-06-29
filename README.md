@@ -41,7 +41,7 @@
 | :---: | :---: | :---: | :---: | :---: |
 | Virtual | Introductions | May 29, 2020 | Click [here](https://docs.google.com/document/d/1iqOUm5e4UyHBLjaCJyvbvfXfv8V2INnmWWQokkJhZqE/edit?usp=sharing) | [Mentor-mentee Agreement](https://docs.google.com/document/d/1U9JwfIqtUa--cNdYOpbBjmLP1cpyFvBQqz4LzOSyZeI/edit?usp=sharing) |
 | Virtual | Week 1 | June 5, 2020 | Click [here](https://docs.google.com/document/d/13_i8dGmxDLojX-7ZNn7idtqVwm94vd96K8r4ozlZMAQ/edit?usp=sharing) | None |
-| Virtual | Week 3 | June 30, 2020 | Click [here](https://docs.google.com/document/d/1KHxfhnHezkgMS7wq4b_mOKGzxbVVivMtLN_kNSJRHtM/edit) | (https://drive.google.com/drive/folders/1RB8AmY-C89vHY8m2D7A3cLaTHJ9irejk)[Data] |
+| Virtual | Week 3 | June 30, 2020 | Click [here](https://docs.google.com/document/d/1KHxfhnHezkgMS7wq4b_mOKGzxbVVivMtLN_kNSJRHtM/edit) | [Data](https://drive.google.com/drive/folders/1RB8AmY-C89vHY8m2D7A3cLaTHJ9irejk) |
 
 ## Schedule
 | Week | Title | Date | Materials |
