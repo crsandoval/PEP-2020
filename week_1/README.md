@@ -108,9 +108,8 @@ Let’s check if RStudio can find the Git executable.
 
 -   Then select *New Project* ![screenshot of selecting new
     project](img/select_new_project.gif)
-
-Do you see a checkbox labeled “Create a git repository”? ![screenshot of
-create git option](img/RStudio_git_test_2.gif)
+    -   Do you see a checkbox labeled “Create a git repository”?
+        ![screenshot of create git option](img/RStudio_git_test_2.gif)
 
 If you answered yes to the above questions then it looks like RStudio
 and Git are talking to each other. Otherwise, we may need to do some
