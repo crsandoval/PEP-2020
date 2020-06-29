@@ -30,7 +30,7 @@ GitHub speak for copying someone else’s repo into your GitHub account.
 First, sign into GitHub and navigate to the
 [PEP-2020](https://github.com/Turtle-PSB-NOAA/PEP-2020) repo.
 
-In the upper right hand corner, click **Fork**:
+In the upper right hand corner, click **Fork**.
 
 ![screenshot of forking GitHub repo](img/GitHub_fork.gif)
 
@@ -72,8 +72,8 @@ branch in case you need to pull changes. Use a command like this (Click
 
 `git remote add upstream https://github.com/Turtle-PSB-NOAA/PEP-2020.git`
 
-Now let’s take a look at the current remotes for our local repo in the
-shell (Click *Tools &gt; Shell…*) and type:
+Now let’s take a look at the current remotes for our local repo by
+opening up a shell (Click *Tools &gt; Shell…*) and typing:
 
 `git remote -v`
 
@@ -177,4 +177,6 @@ and
 git push origin --delete remoteBranchName
 ```
 
-This will delete the local and remote banch copies respectively.
+This will delete the local and remote banch copies respectively. In our
+example, both `localBranchName` and `remoteBranchName` would be
+`fix-PEP-2020`.
