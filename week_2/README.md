@@ -99,6 +99,8 @@ later on.
 
 To do this we’re going to click on “New Branch” in the Git pane.
 
+![new branch button on RStudio IDE](img/new_branch.gif)
+
 Provide a name for the branch. I usually just prefix the repo name with
 “fix-”, so in this example the branch would be named “fix-PEP-2020”.
 
@@ -108,8 +110,6 @@ Click “Create”.
 
 This will also create a remote branch `fix-PEP-2020` from
 `origin\master` (ie, the forked `PEP-2020`) on your GitHub account.
-
-<!-- git push origin --delete test ## deletes a remote branch -->
 
 ### Pull changes from `upstream`
 
@@ -131,8 +131,50 @@ the `fix-PEP-2020` branch and run:
 
 Now the working branch will be up to date (synced) with `master`.
 
-### Update forked branch
+### Update branch
 
 After making all the commits to your working local branch, you should
 push changes to your remote repo. You can use the green “Push” button in
 RStudio to do this.
+
+3 - Pull request
+----------------
+
+After you have finished making all the changes you want to the
+`fix-PEP-2020` branch (or whatever you called it) and pushing those
+changes to the remote copy (to GitHub), you’ll want to initiate a pull
+request.
+
+To do this, you will need to log onto GitHub and navigate to the branch
+that you’d like to merge into the upstream repo (ie,
+Turtle-PSB-NOAA/PEP-2020). Once you’re there, click on the “Pull
+requests” tab.
+
+![location of pull request tab on GitHub](img/pull_request_tab.gif)
+
+Then click the green “New pull request” button and follow the prompts
+from GitHub.
+
+![new pull request button on GitHub](img/new_pull_request.gif)
+
+4 - Delete branch
+-----------------
+
+After your pull request has been accepted and merged into the upstream
+repo, it’s time to delete the local and remote copies of the branch. To
+do this, navigate to your local master copy in RStudio and open a shell
+(Click *Tools &gt; Shell…*) and type:
+
+``` git
+// delete branch locally
+git branch -d localBranchName
+```
+
+and
+
+``` git
+// delete branch remotely
+git push origin --delete remoteBranchName
+```
+
+This will delete the local and remote banch copies respectively.
