@@ -88,8 +88,10 @@ the local clone (ie, `master`), commit any changes, and then push those
 changes to the remote fork (ie, `origin/master`) using the green “Push”
 button in the git panel of RStudio.
 
-3 - Create a pull request
--------------------------
+3 - Time to merge
+-----------------
+
+### Create a pull request
 
 TBD
 
