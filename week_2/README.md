@@ -23,6 +23,7 @@ Overview
 4.  Push your Changes
 5.  Create a Pull Request
 6.  Update your Fork
+7.  Pull Changes
 
 1 - GitHub first, RStudio second
 --------------------------------
@@ -95,3 +96,8 @@ TBD
 ### Update Fork
 
 TBD
+
+### Pull changes from fork to local clone
+
+This one is easy, just use the blue “Pull” button in the git panel of
+RStudio.
