@@ -17,6 +17,13 @@ Overview
 
 ![flowchart of workflow](img/overview.jpg)
 
+1.  Create a Fork
+2.  Clone your Fork
+3.  Modify the Code
+4.  Push your Changes
+5.  Create a Pull Request
+6.  Update your Fork
+
 1 - GitHub first, RStudio second
 --------------------------------
 
@@ -77,16 +84,14 @@ Without getting too much into the weeds, each pull request you make is
 bound to a branch of a git / GitHub repo. For our purposes, we will
 never be making multiple pull requests at once. So we will just modify
 the local clone (ie, `master`), commit any changes, and then push those
-changes to the remote fork (ie, `origin/master`).
+changes to the remote fork (ie, `origin/master`) using the green “Push”
+button in the git panel of RStudio.
 
-Overview
---------
+3 - Create a pull request
+-------------------------
 
-1.  Create a Fork
-2.  Clone your Fork
-3.  Modify the Code
-4.  Push your Changes
-5.  Create a Pull Request
-6.  Update your Fork
+TBD
 
 ### Update Fork
+
+TBD
