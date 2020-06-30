@@ -26,6 +26,8 @@ The PEP 2020 internship with the Sea Turtle Ecology Team already has a
 GitHub repo (see [here](https://github.com/Turtle-PSB-NOAA/PEP-2020)),
 so we can use that as a starting point to collaborate. “Fork” is Git /
 GitHub speak for copying someone else’s repo into your GitHub account.
+After forking, you can make changes to the repo without affecting the
+original version.
 
 First, sign into GitHub and navigate to the
 [PEP-2020](https://github.com/Turtle-PSB-NOAA/PEP-2020) repo.
@@ -63,120 +65,28 @@ In RStudio, start a new project:
 This should download all of the files from the GitHub PEP-2020 repo onto
 your local mahcine. Look in RStudio’s file browser pane to see all of
 the downloaded files. This is known as the `master` (or default) branch.
+The remote, forked repo on GitHub is, by default, known as the
+`origin/master` branch.
 
-### Set the remote `upstream` repo
-
-It’s a good idea to set the remote `upstream` repo to your `master`
-branch in case you need to pull changes. Use a command like this (Click
-*Tools &gt; Shell…*),
-
-`git remote add upstream https://github.com/Turtle-PSB-NOAA/PEP-2020.git`
-
-Now let’s take a look at the current remotes for our local repo by
-opening up a shell (Click *Tools &gt; Shell…*) and typing:
-
-`git remote -v`
-
-You should see four repos listed, two labeled with `origin` and two
-labeled with `upstream`.
-
-### Quick summary
-
-So far we forked (copied) a GitHub repo into our GitHub account and then
-cloned (downloaded) the forked repo onto our local machine. We then told
-git where the original repository (the one we forked / cloned) is
-located, just in case we need to sync up any changes made in the
-original repo to our local `master` copy.
-
-2 - Work locally
-----------------
-
-### Never alter `master`
-
-To work on the local PEP-2020 repo we first need to create a branch
-(named something other than `master`), which will make things easier
-later on.
-
-To do this we’re going to click on “New Branch” in the Git pane.
-
-![new branch button on RStudio IDE](img/new_branch.gif)
-
-Provide a name for the branch. I usually just prefix the repo name with
-“fix-”, so in this example the branch would be named “fix-PEP-2020”.
-
-Ensure that the “Remote:” is set to `origin`.
-
-Click “Create”.
-
-This will also create a remote branch `fix-PEP-2020` from
-`origin\master` (ie, the forked `PEP-2020`) on your GitHub account.
-
-### Pull changes from `upstream`
-
-To pull changes from `upstream` into your `master` copy you will need to
-open a shell (Click *Tools &gt; Shell…*) and type:
-
-`git pull upstream master --ff-only`
-
-**NOTE**: Make sure you’re on the `master` branch before running the git
-command above. Unfortunately, you cannot do this from RStudio.
-
-#### Update branch with `master`
-
-In order to reflect the upstream changes made to `master` in the branch
-`fix-PEP-2020` (or whatever you called it), you will need to switch to
-the `fix-PEP-2020` branch and run:
-
-`git merge master`
-
-Now the working branch will be up to date (synced) with `master`.
-
-### Update branch
-
-After making all the commits to your working local branch, you should
-push changes to your remote repo. You can use the green “Push” button in
-RStudio to do this.
-
-3 - Pull request
-----------------
-
-After you have finished making all the changes you want to the
-`fix-PEP-2020` branch (or whatever you called it) and pushing those
-changes to the remote copy (to GitHub), you’ll want to initiate a pull
-request.
-
-To do this, you will need to log onto GitHub and navigate to the branch
-that you’d like to merge into the upstream repo (ie,
-Turtle-PSB-NOAA/PEP-2020). Once you’re there, click on the “Pull
-requests” tab.
-
-![location of pull request tab on GitHub](img/pull_request_tab.gif)
-
-Then click the green “New pull request” button and follow the prompts
-from GitHub.
-
-![new pull request button on GitHub](img/new_pull_request.gif)
-
-4 - Delete branch
+2 - Start working
 -----------------
 
-After your pull request has been accepted and merged into the upstream
-repo, it’s time to delete the local and remote copies of the branch. To
-do this, navigate to your local master copy in RStudio and open a shell
-(Click *Tools &gt; Shell…*) and type:
+If you ever want to work on multiple pull requests at once, then it will
+be worth your while (actually necessary) to learn more about branches.
+Without getting too much into the weeds, each pull request you make is
+bound to a branch of a git / GitHub repo. For our purposes, we will
+never be making multiple pull requests at once. So we will just modify
+the local clone (ie, `master`), commit any changes, and then push those
+changes to the remote fork (ie, `origin/master`).
 
-``` git
-// delete branch locally
-git branch -d localBranchName
-```
+Overview
+--------
 
-and
+1.  Create a Fork
+2.  Clone your Fork
+3.  Modify the Code
+4.  Push your Changes
+5.  Create a Pull Request
+6.  Update your Fork
 
-``` git
-// delete branch remotely
-git push origin --delete remoteBranchName
-```
-
-This will delete the local and remote banch copies respectively. In our
-example, both `localBranchName` and `remoteBranchName` would be
-`fix-PEP-2020`.
+### Update Fork
