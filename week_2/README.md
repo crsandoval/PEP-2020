@@ -61,7 +61,7 @@ In RStudio, start a new project:
 -   Click *File &gt; New Project &gt; Version Control &gt; Git*. In the
     “repository URL” paste the URL of the forked GitHub repository from
     your GitHub account. It will be something like this
-    &lt;style=‘nolink’&gt;https<!-- -->://github.com/<GitHub user name>/PEP-2020.git
+    https<!-- -->://github.com/<GitHub user name>/PEP-2020.git
 -   Be intentional about where you create this project
 -   I suggest that you “Open in new session”
 -   Click “Create Project” to create a new directory, which will be all
@@ -97,7 +97,15 @@ TBD
 
 ### Update Fork
 
-TBD
+![gif of how to sync fork with upstream on GitHub](img/syncing_fork.gif)
+
+In GitHub: \* Navigate to your forked repo \* If your forked copy is
+behind the upstream repo, GitHub will display a message that says
+something like “This branch is 1 commit behind Turtle-PSB-NOAA:master”
+\* Click “switching the base”, which will change your fork to the base
+and the original, upstream repo to the head fork \* Click “Create pull
+request” \* Provide a name and an optional message \* Click “Create pull
+request” again \* Click “Merge pull request” \* Click “Confirm merge”
 
 ### Pull changes from remote fork to local clone
 
