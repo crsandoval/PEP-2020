@@ -97,15 +97,22 @@ TBD
 
 ### Update Fork
 
-![gif of how to sync fork with upstream on GitHub](img/syncing_fork.gif)
+![gif of how to sync fork with upstream on
+GitHub](img/updating_fork.gif)
 
-In GitHub: \* Navigate to your forked repo \* If your forked copy is
-behind the upstream repo, GitHub will display a message that says
-something like “This branch is 1 commit behind Turtle-PSB-NOAA:master”
-\* Click “switching the base”, which will change your fork to the base
-and the original, upstream repo to the head fork \* Click “Create pull
-request” \* Provide a name and an optional message \* Click “Create pull
-request” again \* Click “Merge pull request” \* Click “Confirm merge”
+In GitHub:
+
+-   Navigate to your forked repo
+    -   If your forked copy is behind the upstream repo, GitHub will
+        display a message that says something like “This branch is 1
+        commit behind Turtle-PSB-NOAA:master”
+-   Click “switching the base”, which will change your fork to the base
+    and the original, upstream repo to the head fork
+-   Click “Create pull request”
+-   Provide a name and an optional message
+-   Click “Create pull request” again
+-   Click “Merge pull request”
+-   Click “Confirm merge”
 
 ### Pull changes from remote fork to local clone
 
