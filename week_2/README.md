@@ -61,9 +61,9 @@ In RStudio, start a new project:
 -   Click *File &gt; New Project &gt; Version Control &gt; Git*. In the
     “repository URL” paste the URL of the forked GitHub repository from
     your GitHub account. It will be something like this
-    <a href="https://github.com/" class="uri">https://github.com/</a><GitHub user name>/PEP-2020.git
+    &lt;style=‘nolink’&gt;https<!-- -->://github.com/<GitHub user name>/PEP-2020.git
 -   Be intentional about where you create this project
--   Suggest that you “Open in new session”
+-   I suggest that you “Open in new session”
 -   Click “Create Project” to create a new directory, which will be all
     of these things:
     -   a directory or “folder” on your computer
