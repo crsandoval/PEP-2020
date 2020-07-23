@@ -1,0 +1,408 @@
+---
+title: "Turtle Ecology Team"
+output: html_notebook
+---
+
+---
+title: "PEP-2020"
+output: html_document
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(here)
+library(dplyr)
+library(DBI)
+library(janitor)
+library(magrittr)
+library(ggplot2)
+library(scales)
+library(tidyr)
+library(lubridate)
+library(geosphere)
+library(tidyverse)
+library(maps)
+library(plotly)
+```
+
+ 
+
+```{r import-data, echo = FALSE}
+dive_data = readr::read_csv(here::here('data', 'te_dive_20200626_All.csv'))
+```
+
+```{r clean-data, echo = FALSE}
+## remove empty columns
+dive_data %<>% remove_empty(which = 'cols')
+
+## format column names
+dive_data %<>% clean_names(case = 'snake')
+
+## convert ds_date and de_date to datetimes
+dive_data %<>% mutate(ds_date = as.POSIXct(ds_date, format = '%d-%b-%y %H:%M:%S', tz = 'UTC'),
+                      de_date = as.POSIXct(de_date, format = '%d-%b-%y %H:%M:%S', tz = 'UTC'))
+
+## try to calculate ds_date if missing
+dive_data %<>% mutate(ds_date = if_else(is.na(ds_date), de_date - dive_dur, ds_date))
+
+## calculate time at depth
+dive_data %<>% mutate(time1 = t1 / 100 * dive_dur + ds_date,
+                      time2 = t2 / 100 * dive_dur + ds_date,
+                      time3 = t3 / 100 * dive_dur + ds_date,
+                      time4 = t4 / 100 * dive_dur + ds_date,
+                      time5 = t5 / 100 * dive_dur + ds_date
+                      )
+
+## add start / end times
+dive_data %<>% mutate(d0 = 0, d6 = 0, time0 = ds_date, time6 = de_date)
+
+## create an id column that tracks dives by individual
+dive_data %<>% group_by(newptt) %>% arrange(ds_date) %>% mutate(id = 1:n()) %>% ungroup()
+```
+
+```{r data-modify, echo = FALSE}
+## add a column to identify day / night dives (6am - 8pm)
+dive_data %<>% mutate(ds_date_local = with_tz(ds_date, tz = 'America/New_York'),
+                      de_date_local = with_tz(de_date, tz = 'America/New_York'),
+                      start_day = paste0(format(ds_date, '%Y-%m-%d'), ' 06:00:00') %>% as.POSIXct(., format = '%Y-%m-%d %H:%M:%S', tz = 'America/New_York'), 
+                      end_day = paste0(format(ds_date, '%Y-%m-%d'), ' 19:59:59') %>% as.POSIXct(., format = '%Y-%m-%d %H:%M:%S', tz = 'America/New_York'),
+                      day_night = if_else(ds_date_local >= start_day & ds_date_local <= end_day, 'day', 'night')
+                      )
+
+## add a column to identify dive categories
+dive_data %<>% mutate(dive_cat = case_when(max_dep >= 0 & max_dep < 6 ~ 'shallow',
+                                           max_dep >= 6 & max_dep < 30 ~ 'midwater',
+                                           max_dep >= 30 & max_dep < 70 ~ 'deep',
+                                           max_dep >= 70 ~ 'very deep',
+                                           TRUE ~ as.character(max_dep)),
+                      dive_cat = factor(dive_cat, levels = c('shallow', 'midwater', 'deep', 'very deep')
+                      ))
+```
+
+```{r data-errors}
+## time must be sorted
+error_1 = dive_data %>% dplyr::select(newptt, id, time0, time1, time2, time3, time4, time5, time6) %>% pivot_longer(cols = starts_with('time'), names_to = 'order', values_to = 'time') %>% group_by(newptt, id) %>% arrange(order, .by_group = TRUE) %>% summarise(error = is.unsorted(time)) %>% ungroup()
+
+## join error column back into dive_data (main dataset)
+dive_data %<>% left_join(error_1, by = c('newptt', 'id'))
+
+## take a look
+dive_data %>% filter(error) %>% dplyr::select(time0, time1, time2, time3, time4, time5, time6)
+
+## remove potentially erroneous data
+dive_data %<>% filter(!error)
+
+## depth must be >= 0
+dive_data %>% dplyr::select(d0, d1, d2, d3, d4, d5, d6) %>% filter_all(all_vars(. > 0))
+
+## get rid of records where ds_date is a decade or more earlier than de_date (weird)
+dive_data %<>% filter(!(newptt %in% c(118944, 118947, 118887, 118894, 117167, 129780, 118910) & id == 1))
+```
+
+```{r plot-summaries}
+## extract month and year
+dive_data %<>% mutate(month = format(ds_date, '%m') %>% as.numeric(), year = format(ds_date, '%Y') %>% as.numeric())
+
+## average dive duration by month and day / night
+dive_bar = dive_data %>% group_by(month, day_night) %>% summarise(avg_dive_dur = mean(dive_dur)) %>% ungroup()
+
+## ggplot barplot of avg. dive duration by month and day / night
+ggplot(data = dive_bar, aes(x = factor(month), y = avg_dive_dur, fill = factor(day_night))) + geom_bar(position = 'dodge2', stat = 'identity') + xlab('month') + ylab('avg dive duration (sec)') + guides(fill = guide_legend(title = element_blank()))
+
+## average dive duration by month, dive category, and day / night
+dive_bar_2 = dive_data %>% group_by(month, dive_cat, day_night) %>% summarise(avg_dive_dur = mean(dive_dur)) %>% ungroup()
+
+## ggplot barplot of avg. dive duration by month and day / night
+ggplot(data = dive_bar_2, aes(x = factor(month), y = avg_dive_dur, fill = factor(dive_cat))) + geom_bar(position = 'dodge2', stat = 'identity') + xlab('month') + ylab('avg dive duration (sec)') + guides(fill = guide_legend(title = element_blank())) +
+  facet_wrap(~day_night)
+```
+
+```{r cluster-variables}
+## variable of interest
+
+# vertical displacement
+dive_data %<>% mutate(diff_1 = abs(d1 - d0),
+                      diff_2 = abs(d2 - d1), 
+                      diff_3 = abs(d3 - d2),
+                      diff_4 = abs(d4 - d3),
+                      diff_5 = abs(d5 - d4),
+                      diff_6 = abs(d6 - d5),
+                      vertical_displacement = diff_1 + diff_2 + diff_3 + diff_4 + diff_5 + diff_6) %>% 
+  dplyr::select(-c(diff_1, diff_2, diff_3, diff_4, diff_5, diff_6))
+
+# average dive velocity (some difftimes of 0 -> round-off error)
+dive_data %<>% mutate(vel_1 = (d1 - d0) / (difftime(time1, time0, units = 'mins') %>% as.numeric()),
+                      vel_2 = (d2 - d1) / (difftime(time2, time1, units = 'mins') %>% as.numeric()), 
+                      vel_3 = (d3 - d2) / (difftime(time3, time2, units = 'mins') %>% as.numeric()),
+                      vel_4 = (d4 - d3) / (difftime(time4, time3, units = 'mins') %>% as.numeric()),
+                      vel_5 = (d5 - d4) / (difftime(time5, time4, units = 'mins') %>% as.numeric()),
+                      vel_6 = (d6 - d5) / (difftime(time6, time5, units = 'mins') %>% as.numeric())) %>% 
+  rowwise() %>% 
+  mutate(avg_velocity = mean(c(vel_1, vel_2, vel_3, vel_4, vel_5, vel_6), na.rm = TRUE)) %>%
+  dplyr::select(-c(vel_1, vel_2, vel_3, vel_4, vel_5, vel_6))
+
+# time of day (time since midnight)
+```
+
+```{r data-wide2long}
+## only keep certain columns
+dive_sub = dive_data %>% dplyr::select(newptt, id, d0, d1, d2, d3, d4, d5, d6, time0, time1, time2, time3, time4, time5, time6)
+
+## create an index column from newptt and id
+dive_sub %<>% unite('newptt_id', newptt, id, remove = TRUE)
+
+## wide to long for plotting using the index column
+dive_long = dive_sub %>% pivot_longer(cols = -newptt_id, names_to = c('.value', 'order'), names_pattern = '([a-z]+)(\\d+)')
+
+## rename depth column for clarity
+dive_long %<>% rename(depth = d)
+
+## split newptt_id (index column) back into separate columns 
+dive_long %<>% separate(newptt_id, sep = '_', into = c('newptt', 'id'), remove = TRUE)
+
+## convert character columns to numeric
+dive_long %<>% mutate(newptt = as.numeric(newptt), id = as.numeric(id))
+
+## add in data mods (couldn't figure out how to do this with tidyr::pivot_longer)
+dive_long %<>% left_join(dive_data %>% dplyr::select(newptt, id, ds_date, day_night, dive_cat), by = c('newptt', 'id'))
+
+## time since dive start in mins
+dive_long %<>% mutate(plot_time2 = difftime(time, ds_date, units = 'mins') %>% as.numeric())
+
+## join error column back into dive_long
+dive_long %<>% left_join(error_1, by = c('newptt', 'id'))
+
+## remove potentially erroneous data
+dive_long %<>% filter(!error)
+
+## get rid of records where ds_date is a decade or more earlier than de_date (weird)
+dive_long %<>% filter(!(newptt %in% c(118944, 118947, 118887, 118894, 117167, 129780, 118910) & id == 1))
+```
+
+```{r}
+unique(dive_data$newptt)
+```
+
+```{r plot-dives}
+ggplot(data = dive_long %>% filter(newptt == 97623 & id %in% 1:50), aes(x = plot_time2, y = depth, group = id, color = factor(day_night))) +
+  geom_line() + 
+  scale_y_reverse() +
+  xlab('standardized time') + 
+  theme(legend.title = element_blank())
+```
+
+```{r plotly-dives}
+ggplot(data = dive_long %>% filter(newptt == 97623 & id == 8), aes(x = plot_time2, y = depth, group = id, color = factor(day_night))) +
+  geom_line() + 
+  scale_y_reverse() +
+  xlab('standardized time')+ 
+  theme(legend.title = element_blank())
+```
+
+```{r plot-dives}
+ggplot(data = dive_long %>% filter(newptt == 97624 & id %in% 1:50), aes(x = plot_time2, y = depth, group = id, color = factor(day_night))) +
+  geom_line() + 
+  scale_y_reverse() +
+  xlab('standardized time') + 
+  theme(legend.title = element_blank())
+```
+
+```{r plotly-dives}
+ggplot(data = dive_long %>% filter(newptt == 97624 & id == 1), aes(x = plot_time2, y = depth, group = id, color = factor(day_night))) +
+  geom_line() + 
+  scale_y_reverse() +
+  xlab('standardized time')+ 
+  theme(legend.title = element_blank())
+```
+
+```{r plot-dives}
+ggplot(data = dive_long %>% filter(newptt == 100115 & id %in% 1:50), aes(x = plot_time2, y = depth, group = id, color = factor(day_night))) +
+  geom_line() + 
+  scale_y_reverse() +
+  xlab('standardized time') + 
+  theme(legend.title = element_blank())
+```
+
+```{r plotly-dives}
+ggplot(data = dive_long %>% filter(newptt == 100115 & id == 1), aes(x = plot_time2, y = depth, group = id, color = factor(day_night))) +
+  geom_line() + 
+  scale_y_reverse() +
+  xlab('standardized time')+ 
+  theme(legend.title = element_blank())
+```
+
+```{r plot-dives}
+ggplot(data = dive_long %>% filter(newptt == 100116 & id %in% 1:50), aes(x = plot_time2, y = depth, group = id, color = factor(day_night))) +
+  geom_line() + 
+  scale_y_reverse() +
+  xlab('standardized time') + 
+  theme(legend.title = element_blank())
+```
+
+
+```{r plotly-dives}
+ggplot(data = dive_long %>% filter(newptt == 100116 & id == 17), aes(x = plot_time2, y = depth, group = id, color = factor(day_night))) +
+  geom_line() + 
+  scale_y_reverse() +
+  xlab('standardized time')+ 
+  theme(legend.title = element_blank())
+```
+
+```{r plot-dives}
+ggplot(data = dive_long %>% filter(newptt == 100117 & id %in% 1:50), aes(x = plot_time2, y = depth, group = id, color = factor(day_night))) +
+  geom_line() + 
+  scale_y_reverse() +
+  xlab('standardized time') + 
+  theme(legend.title = element_blank())
+```
+
+```{r plotly-dives}
+ggplot(data = dive_long %>% filter(newptt == 100117 & id == 5), aes(x = plot_time2, y = depth, group = id, color = factor(day_night))) +
+  geom_line() + 
+  scale_y_reverse() +
+  xlab('standardized time')+ 
+  theme(legend.title = element_blank())
+```
+
+```{r plot-dives}
+ggplot(data = dive_long %>% filter(newptt == 100118 & id %in% 1:50), aes(x = plot_time2, y = depth, group = id, color = factor(day_night))) +
+  geom_line() + 
+  scale_y_reverse() +
+  xlab('standardized time') + 
+  theme(legend.title = element_blank())
+```
+
+```{r plot-dives}
+ggplot(data = dive_long %>% filter(newptt == 100119 & id %in% 1:50), aes(x = plot_time2, y = depth, group = id, color = factor(day_night))) +
+  geom_line() + 
+  scale_y_reverse() +
+  xlab('standardized time') + 
+  theme(legend.title = element_blank())
+```
+
+```{r plot-dives}
+ggplot(data = dive_long %>% filter(newptt == 100120 & id %in% 1:50), aes(x = plot_time2, y = depth, group = id, color = factor(day_night))) +
+  geom_line() + 
+  scale_y_reverse() +
+  xlab('standardized time') + 
+  theme(legend.title = element_blank())
+```
+
+```{r plot-dives}
+ggplot(data = dive_long %>% filter(newptt == 100121 & id %in% 1:50), aes(x = plot_time2, y = depth, group = id, color = factor(day_night))) +
+  geom_line() + 
+  scale_y_reverse() +
+  xlab('standardized time') + 
+  theme(legend.title = element_blank())
+```
+
+```{r plot-dives}
+ggplot(data = dive_long %>% filter(newptt == 100122 & id %in% 1:50), aes(x = plot_time2, y = depth, group = id, color = factor(day_night))) +
+  geom_line() + 
+  scale_y_reverse() +
+  xlab('standardized time') + 
+  theme(legend.title = element_blank())
+```
+
+```{r plot-dives}
+ggplot(data = dive_long %>% filter(newptt == 100123 & id %in% 1:50), aes(x = plot_time2, y = depth, group = id, color = factor(day_night))) +
+  geom_line() + 
+  scale_y_reverse() +
+  xlab('standardized time') + 
+  theme(legend.title = element_blank())
+```
+
+```{r plot-dives}
+ggplot(data = dive_long %>% filter(newptt == 100124 & id %in% 1:50), aes(x = plot_time2, y = depth, group = id, color = factor(day_night))) +
+  geom_line() + 
+  scale_y_reverse() +
+  xlab('standardized time') + 
+  theme(legend.title = element_blank())
+```
+
+```{r plot-dives}
+ggplot(data = dive_long %>% filter(newptt == 100125 & id %in% 1:50), aes(x = plot_time2, y = depth, group = id, color = factor(day_night))) +
+  geom_line() + 
+  scale_y_reverse() +
+  xlab('standardized time') + 
+  theme(legend.title = element_blank())
+```
+
+
+```{r plot-dives}
+ggplot(data = dive_long %>% filter(newptt == 100126 & id %in% 1:50), aes(x = plot_time2, y = depth, group = id, color = factor(day_night))) +
+  geom_line() + 
+  scale_y_reverse() +
+  xlab('standardized time') + 
+  theme(legend.title = element_blank())
+```
+
+```{r plot-dives}
+ggplot(data = dive_long %>% filter(newptt == 100127 & id %in% 1:50), aes(x = plot_time2, y = depth, group = id, color = factor(day_night))) +
+  geom_line() + 
+  scale_y_reverse() +
+  xlab('standardized time') + 
+  theme(legend.title = element_blank())
+```
+
+```{r plot-dives}
+ggplot(data = dive_long %>% filter(newptt == 100128 & id %in% 1:50), aes(x = plot_time2, y = depth, group = id, color = factor(day_night))) +
+  geom_line() + 
+  scale_y_reverse() +
+  xlab('standardized time') + 
+  theme(legend.title = element_blank())
+```
+
+```{r plot-dives}
+ggplot(data = dive_long %>% filter(newptt == 100129 & id %in% 1:50), aes(x = plot_time2, y = depth, group = id, color = factor(day_night))) +
+  geom_line() + 
+  scale_y_reverse() +
+  xlab('standardized time') + 
+  theme(legend.title = element_blank())
+```
+hhhgchg
+jgjg
+
+
+```{r plotly-dives}
+plt_dive = ggplot(data = dive_long %>% filter(newptt == 97623 & id == 1), aes(x = plot_time2, y = depth, group = id, color = factor(day_night))) +
+  geom_line() + 
+  scale_y_reverse() +
+  xlab('standardized time')+ 
+  theme(legend.title = element_blank())
+
+ggplotly(plt_dive)
+```
+
+```{r import-data, echo = FALSE}
+dive_data = readr::read_csv(here::here('data', 'te_dive_20200626_All.csv'))
+```
+
+```{r}
+plt_full_map = ggplot(dive_data, aes(LON,LAT)) + 
+    geom_path(color = 'blue') +
+    geom_polygon(aes(long, lat, group=group), data = map_data('world'))
+```
+
+```{r}
+plt_full_map
+```
+
+```{r}
+plt_map = ggplot(dive_data, aes(LON,LAT)) + 
+    geom_path(color = 'blue') +
+    geom_polygon(aes(long, lat, group=group), data = map_data('world')) +
+  coord_quickmap(xlim = c(-75, -20), ylim = c(12,60))
+```
+
+```{r}
+plt_map
+```
+
+```{r}
+dive_data %<>% rowwise() %>% mutate(sd_mid_3_pts = sd(c(D2, D3, D4)))
+```
+
+```{r}
+dive_data
+```
