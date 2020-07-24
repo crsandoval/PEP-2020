@@ -1,6 +1,9 @@
 ---
 title: "Turtle Ecology Team"
-output: html_notebook
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
 ---
 
 ---
@@ -25,10 +28,8 @@ library(maps)
 library(plotly)
 ```
 
- 
-
 ```{r import-data, echo = FALSE}
-dive_data = readr::read_csv(here::here('data', 'te_dive_20200626_All.csv'))
+dive_data = readr::read_csv(here::here('data', 'te_dive_20200626.csv'))
 ```
 
 ```{r clean-data, echo = FALSE}
@@ -66,16 +67,16 @@ dive_data %<>% mutate(ds_date_local = with_tz(ds_date, tz = 'America/New_York'),
                       de_date_local = with_tz(de_date, tz = 'America/New_York'),
                       start_day = paste0(format(ds_date, '%Y-%m-%d'), ' 06:00:00') %>% as.POSIXct(., format = '%Y-%m-%d %H:%M:%S', tz = 'America/New_York'), 
                       end_day = paste0(format(ds_date, '%Y-%m-%d'), ' 19:59:59') %>% as.POSIXct(., format = '%Y-%m-%d %H:%M:%S', tz = 'America/New_York'),
-                      day_night = if_else(ds_date_local >= start_day & ds_date_local <= end_day, 'day', 'night')
+                      day_night = if_else(ds_date_local >= start_day & ds_date_local <= end_day, 'Day', 'Night')
                       )
 
 ## add a column to identify dive categories
-dive_data %<>% mutate(dive_cat = case_when(max_dep >= 0 & max_dep < 6 ~ 'shallow',
-                                           max_dep >= 6 & max_dep < 30 ~ 'midwater',
-                                           max_dep >= 30 & max_dep < 70 ~ 'deep',
-                                           max_dep >= 70 ~ 'very deep',
+dive_data %<>% mutate(dive_cat = case_when(max_dep >= 0 & max_dep < 6 ~ 'Shallow',
+                                           max_dep >= 6 & max_dep < 30 ~ 'Midwater',
+                                           max_dep >= 30 & max_dep < 70 ~ 'Deep',
+                                           max_dep >= 70 ~ 'Very Deep',
                                            TRUE ~ as.character(max_dep)),
-                      dive_cat = factor(dive_cat, levels = c('shallow', 'midwater', 'deep', 'very deep')
+                      dive_cat = factor(dive_cat, levels = c('Shallow', 'Midwater', 'Deep', 'Very Deep')
                       ))
 ```
 
@@ -107,13 +108,13 @@ dive_data %<>% mutate(month = format(ds_date, '%m') %>% as.numeric(), year = for
 dive_bar = dive_data %>% group_by(month, day_night) %>% summarise(avg_dive_dur = mean(dive_dur)) %>% ungroup()
 
 ## ggplot barplot of avg. dive duration by month and day / night
-ggplot(data = dive_bar, aes(x = factor(month), y = avg_dive_dur, fill = factor(day_night))) + geom_bar(position = 'dodge2', stat = 'identity') + xlab('month') + ylab('avg dive duration (sec)') + guides(fill = guide_legend(title = element_blank()))
+ggplot(data = dive_bar, aes(x = factor(month), y = avg_dive_dur, fill = factor(day_night))) + geom_bar(position = 'dodge2', stat = 'identity') + xlab('Month') + ylab('Avg Dive Duration (Sec)') + guides(fill = guide_legend(title = element_blank()))
 
 ## average dive duration by month, dive category, and day / night
 dive_bar_2 = dive_data %>% group_by(month, dive_cat, day_night) %>% summarise(avg_dive_dur = mean(dive_dur)) %>% ungroup()
 
 ## ggplot barplot of avg. dive duration by month and day / night
-ggplot(data = dive_bar_2, aes(x = factor(month), y = avg_dive_dur, fill = factor(dive_cat))) + geom_bar(position = 'dodge2', stat = 'identity') + xlab('month') + ylab('avg dive duration (sec)') + guides(fill = guide_legend(title = element_blank())) +
+ggplot(data = dive_bar_2, aes(x = factor(month), y = avg_dive_dur, fill = factor(dive_cat))) + geom_bar(position = 'dodge2', stat = 'identity') + xlab('Month') + ylab('Avg Dive Duration (Sec)') + guides(fill = guide_legend(title = element_blank())) +
   facet_wrap(~day_night)
 ```
 
@@ -360,9 +361,6 @@ ggplot(data = dive_long %>% filter(newptt == 100129 & id %in% 1:50), aes(x = plo
   xlab('standardized time') + 
   theme(legend.title = element_blank())
 ```
-hhhgchg
-jgjg
-
 
 ```{r plotly-dives}
 plt_dive = ggplot(data = dive_long %>% filter(newptt == 97623 & id == 1), aes(x = plot_time2, y = depth, group = id, color = factor(day_night))) +
@@ -374,12 +372,8 @@ plt_dive = ggplot(data = dive_long %>% filter(newptt == 97623 & id == 1), aes(x 
 ggplotly(plt_dive)
 ```
 
-```{r import-data, echo = FALSE}
-dive_data = readr::read_csv(here::here('data', 'te_dive_20200626_All.csv'))
-```
-
 ```{r}
-plt_full_map = ggplot(dive_data, aes(LON,LAT)) + 
+plt_full_map = ggplot(dive_data %>% filter(newptt == 100120), aes(lon,lat)) + 
     geom_path(color = 'blue') +
     geom_polygon(aes(long, lat, group=group), data = map_data('world'))
 ```
@@ -389,7 +383,7 @@ plt_full_map
 ```
 
 ```{r}
-plt_map = ggplot(dive_data, aes(LON,LAT)) + 
+plt_map = ggplot(dive_data %>% filter(newptt == 100120), aes(lon,lat)) + 
     geom_path(color = 'blue') +
     geom_polygon(aes(long, lat, group=group), data = map_data('world')) +
   coord_quickmap(xlim = c(-75, -20), ylim = c(12,60))
@@ -400,7 +394,7 @@ plt_map
 ```
 
 ```{r}
-dive_data %<>% rowwise() %>% mutate(sd_mid_3_pts = sd(c(D2, D3, D4)))
+dive_data %<>% rowwise() %>% mutate(sd_mid_3_pts = sd(c(d2, d3, d4)))
 ```
 
 ```{r}
