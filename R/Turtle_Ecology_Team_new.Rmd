@@ -6,11 +6,6 @@ output:
     df_print: paged
 ---
 
----
-title: "PEP-2020"
-output: html_document
----
-
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(here)
@@ -145,16 +140,18 @@ dive_data %<>% mutate(timediff_1 = difftime(time1, time0, units = 'hours') %>% a
                       vel_6 = ifelse(timediff_6 == 0, NA, diff_6 / timediff_6)) %>%
   rowwise() %>%
   mutate(avg_velocity = mean(c(vel_1, vel_2, vel_3, vel_4, vel_5, vel_6), na.rm = TRUE))
+```
 
+```{r}
 # time of day (time since midnight in hrs)
 dive_data %<>% mutate(midnight = paste0(format(ds_date, '%Y-%m-%d'), ' 00:00:00') %>% as.POSIXct(., format = '%Y-%m-%d %H:%M:%S', tz = 'UTC'),
                       time_from_midnight = difftime(ds_date, midnight, units = 'hours') %>% as.numeric())
 
 # horizontal displacement (in km)
-# insert code here Chris
+dive_data %<>% mutate(horizontal_displacement = distGeo(p1 = c(lon,lat), p2 = c(-60,-20)) / 1000)
 
 # sd of middle 3 depth points
-# insert code here Chris
+dive_data %<>% rowwise() %>% mutate(sd_mid_3_pts = sd(c(d2, d3, d4)))
 
 # remove intermediary columns
 dive_data %<>% dplyr::select(-c(diff_1, diff_2, diff_3, diff_4, diff_5, diff_6, timediff_1, timediff_2, timediff_3, timediff_4, timediff_5, timediff_6, vel_1, vel_2, vel_3, vel_4, vel_5, vel_6, midnight))
@@ -390,8 +387,42 @@ ggplotly(plt_dive)
 ```
 
 ```{r}
-plt_full_map = ggplot(dive_data %>% filter(newptt == 100120), aes(lon,lat)) + 
-    geom_path(color = 'blue') +
+all_ind = dive_data
+range(ind_100120$lon)
+range(ind_100120$lat)
+```
+
+```{r}
+all_ind_map = ggplot(all_ind, aes(lon,lat)) + 
+    geom_point(color = 'blue') +
+    geom_polygon(aes(long, lat, group=group), data = map_data('world'))
+
+```
+
+```{r}
+all_ind_map
+```
+
+```{r}
+all_ind_map_zoom = ggplot(all_ind, aes(lon,lat)) + 
+    geom_point(color = 'blue') +
+    geom_polygon(aes(long, lat, group=group), data = map_data('world')) +
+    coord_quickmap(xlim = c(-90,-28), ylim = c(18,50))
+```
+
+```{r}
+all_ind_map_zoom
+```
+
+```{r}
+ind_100120 = dive_data %>% filter(newptt == 100120) 
+range(ind_100120$lon)
+range(ind_100120$lat)
+```
+
+```{r}
+plt_full_map = ggplot(ind_100120 %>% filter(newptt == 100120), aes(lon,lat)) + 
+    geom_point(color = 'blue') +
     geom_polygon(aes(long, lat, group=group), data = map_data('world'))
 ```
 
@@ -400,14 +431,14 @@ plt_full_map
 ```
 
 ```{r}
-plt_map = ggplot(dive_data %>% filter(newptt == 100120), aes(lon,lat)) + 
-    geom_path(color = 'blue') +
+plt_map_100120 = ggplot(ind_100120 %>% filter(newptt == 100120), aes(lon,lat)) + 
+    geom_point(color = 'blue') +
     geom_polygon(aes(long, lat, group=group), data = map_data('world')) +
-  coord_quickmap(xlim = c(-75, -20), ylim = c(12,60))
+  coord_quickmap(xlim = c(-75,-55), ylim = c(30,50))
 ```
 
 ```{r}
-plt_map
+plt_map_100120
 ```
 
 ```{r}
